@@ -22,9 +22,10 @@ class Voiture {
         $this->marque = $modele;
     }
 
-    public function _construct($marque,$modele){
+    public function __construct($marque,$modele){
         $this->marque = $marque;
         $this->modele = $modele;
+
     }
 
     public function get_vitesse_courante() {
