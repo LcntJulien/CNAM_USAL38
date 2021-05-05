@@ -1,6 +1,6 @@
 <?php
-require_once ("verifAuthentification.php");
-require_once ("connexion.php");
+require_once ("verifAuthentification2.php");
+require_once ("connexion2.php");
 
 $nom = $_POST['nom'];
 $mail = $_POST['email'];
@@ -42,7 +42,7 @@ $conn->close();
             <td><img src="images/<?php echo($photo_nom) ?>"></td>
         </tr>
     </table>
-        <form action="chercherEtudiant.php">
+        <form action="chercherEtudiant2.php">
             <input type="submit" value="Retour à l'affichage">
         </form>
 </body>

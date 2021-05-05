@@ -1,10 +1,13 @@
 <?php
 
-require_once ("connexion.php");
+require_once ("verifAuthentification.php");
+require_once ("connexionPDO.php");
 
-$sql = "SELECT code, nom, photo FROM etudiant";
-$result = $conn->query($sql);
+$stmt = $conn->prepare("select code, nom, photo from etudiant");
+$stmt->bindParam(':login', $login);
+$stmt->bindParam(':password', $mdp_crypte);
 
+$stmt->execute();
 /* if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
@@ -20,10 +23,10 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Afficher étudiant</title>
 </head>
 <body>
-    <table border="1" width="80%">
+      <table border="1" width="80%">
         <tr>
             <th>CODE</th><th>NOM</th><th>PHOTO</th>
         </tr>
